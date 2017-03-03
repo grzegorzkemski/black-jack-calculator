@@ -48,4 +48,8 @@ describe BlackJackCalculator do
     end
   end
 
+  xdescribe '#bust?'
+
+  xdescribe '#black_jack?'
+
 end
