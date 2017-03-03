@@ -18,6 +18,14 @@ describe BlackJackCalculator do
 
       expect(subject.score).to eq 10
     end
+
+    it 'returns 10 score for face cards' do
+      subject.add_card 'J'
+      subject.add_card 'Q'
+      subject.add_card 'K'
+
+      expect(subject.score).to eq 30
+    end
   end
 
 end

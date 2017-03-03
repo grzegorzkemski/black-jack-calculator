@@ -1,4 +1,6 @@
 class BlackJackCalculator
+  FACE_VALUES = %w(J Q K)
+
   def initialize
     @cards = []
   end
@@ -16,7 +18,7 @@ class BlackJackCalculator
   private
 
   def card_score(card)
-    if card == 'J'
+    if FACE_VALUES.include?(card)
       10
     else
       card.to_i
