@@ -26,6 +26,12 @@ describe BlackJackCalculator do
 
       expect(subject.score).to eq 30
     end
+
+    it 'returns 11 score for Ace card when good for the player' do
+      subject.add_card 'A'
+
+      expect(subject.score).to eq 11
+    end
   end
 
 end
