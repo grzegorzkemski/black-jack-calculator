@@ -1,15 +1,17 @@
 class BlackJackCalculator
   FACE_VALUES = %w(J Q K)
-  ACE_VALUE = 'A'
-  BLACK_JACK = 21
+  ACE_VALUE   = 'A'
+  BLACK_JACK  = 21
 
   def initialize
     @cards = []
   end
 
   def score
-    sum = 0
-    @cards.each { |card| sum += card_score(sum, card) }
+    sum = base_sum
+
+    ace_count.times { sum += 10 if sum + 10 <= BLACK_JACK }
+
     sum
   end
 
@@ -23,13 +25,11 @@ class BlackJackCalculator
 
   private
 
-  def card_score(sum, card)
+  def card_score(card)
     if FACE_VALUES.include?(card)
       10
-    elsif ace?(card) && sum + 11 > BLACK_JACK
-      1
     elsif ace?(card)
-      11
+      1
     else
       card.to_i
     end
@@ -37,5 +37,13 @@ class BlackJackCalculator
 
   def ace?(card)
     card == ACE_VALUE
+  end
+
+  def ace_count
+    @cards.count &method(:ace?)
+  end
+
+  def base_sum
+    @cards.reduce(0) { |sum, card| sum + card_score(card) }
   end
 end

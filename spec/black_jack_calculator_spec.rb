@@ -25,19 +25,27 @@ describe BlackJackCalculator do
       expect(subject.score).to eq 30
     end
 
-    it 'returns 11 score for Ace card when good for the player' do
-      subject.add_card 'A'
+    context 'given Ace card' do
+      it 'returns 11 score when good for the player' do
+        subject.add_card 'A'
 
-      expect(subject.score).to eq 11
+        expect(subject.score).to eq 11
+      end
+
+      context 'given 11 score is not good for the player' do
+        it 'returns 1 score when Ace is the last card' do
+          subject.add_cards '7', '8', 'A'
+
+          expect(subject.score).to eq 16
+        end
+
+        it 'returns 1 score when Ace is the first card' do
+          subject.add_cards 'A', '8', '7'
+
+          expect(subject.score).to eq 16
+        end
+      end
     end
-
-    it 'returns 1 score for Ace card when 11 score is not good for the player' do
-      subject.add_cards '7', '8', 'A'
-
-      expect(subject.score).to eq 16
-    end
-
-    xit 'returns 1 score for Ace card when 11 score is not good for the player, when Ace is a first card'
   end
 
 end
