@@ -36,6 +36,8 @@ describe BlackJackCalculator do
 
       expect(subject.score).to eq 16
     end
+
+    xit 'returns 1 score for Ace card when 11 score is not good for the player, when Ace is a first card'
   end
 
 end
