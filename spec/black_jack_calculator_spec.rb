@@ -20,9 +20,7 @@ describe BlackJackCalculator do
     end
 
     it 'returns 10 score for face cards' do
-      subject.add_card 'J'
-      subject.add_card 'Q'
-      subject.add_card 'K'
+      subject.add_cards 'J', 'Q', 'K'
 
       expect(subject.score).to eq 30
     end
@@ -34,9 +32,7 @@ describe BlackJackCalculator do
     end
 
     it 'returns 1 score for Ace card when 11 score is not good for the player' do
-      subject.add_card '7'
-      subject.add_card '8'
-      subject.add_card 'A'
+      subject.add_cards '7', '8', 'A'
 
       expect(subject.score).to eq 16
     end
