@@ -66,6 +66,22 @@ describe BlackJackCalculator do
     end
   end
 
-  xdescribe '#black_jack?'
+  describe '#black_jack?' do
+    context 'given a game with exactly 21 points' do
+      it 'returns true' do
+        subject.add_cards 'K', '10', 'A'
+
+        expect(subject.black_jack?).to be_truthy
+      end
+    end
+
+    context 'given a game with a score different than 21 points' do
+      it 'returns false' do
+        subject.add_cards '5', '8', '7'
+
+        expect(subject.black_jack?).to be_falsey
+      end
+    end
+  end
 
 end

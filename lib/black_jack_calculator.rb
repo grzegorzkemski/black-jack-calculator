@@ -27,6 +27,10 @@ class BlackJackCalculator
     score > BLACK_JACK
   end
 
+  def black_jack?
+    score == BLACK_JACK
+  end
+
   private
 
   def card_score(card)
