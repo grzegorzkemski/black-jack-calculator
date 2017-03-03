@@ -23,6 +23,10 @@ class BlackJackCalculator
     @cards += cards
   end
 
+  def bust?
+    score > BLACK_JACK
+  end
+
   private
 
   def card_score(card)

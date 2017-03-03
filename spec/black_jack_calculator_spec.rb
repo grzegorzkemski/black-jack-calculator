@@ -48,7 +48,23 @@ describe BlackJackCalculator do
     end
   end
 
-  xdescribe '#bust?'
+  describe '#bust?' do
+    context 'given a game with more than 21 points' do
+      it 'returns true' do
+        subject.add_cards 'K', '8', '7'
+
+        expect(subject.bust?).to be_truthy
+      end
+    end
+
+    context 'given a game with less or equal to 21 points' do
+      it 'returns false' do
+        subject.add_cards '5', '8', '7'
+
+        expect(subject.bust?).to be_falsey
+      end
+    end
+  end
 
   xdescribe '#black_jack?'
 
