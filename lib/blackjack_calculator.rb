@@ -1,6 +1,6 @@
 class BlackjackCalculator
-  FACE_VALUES = %w(J Q K)
-  ACE_VALUE   = 'A'
+  FACE_CARDS  = %w(J Q K)
+  ACE_CARD    = 'A'
   BLACKJACK   = 21
 
   def initialize
@@ -34,7 +34,7 @@ class BlackjackCalculator
   private
 
   def card_score(card)
-    if FACE_VALUES.include?(card)
+    if face?(card)
       10
     elsif ace?(card)
       1
@@ -43,8 +43,12 @@ class BlackjackCalculator
     end
   end
 
+  def face?(card)
+    FACE_CARDS.include?(card)
+  end
+
   def ace?(card)
-    card == ACE_VALUE
+    card == ACE_CARD
   end
 
   def ace_count
