@@ -1,7 +1,7 @@
-class BlackJackCalculator
+class BlackjackCalculator
   FACE_VALUES = %w(J Q K)
   ACE_VALUE   = 'A'
-  BLACK_JACK  = 21
+  BLACKJACK   = 21
 
   def initialize
     @cards = []
@@ -10,7 +10,7 @@ class BlackJackCalculator
   def score
     sum = base_sum
 
-    ace_count.times { sum += 10 if sum + 10 <= BLACK_JACK }
+    ace_count.times { sum += 10 if sum + 10 <= BLACKJACK }
 
     sum
   end
@@ -24,11 +24,11 @@ class BlackJackCalculator
   end
 
   def bust?
-    score > BLACK_JACK
+    score > BLACKJACK
   end
 
   def black_jack?
-    score == BLACK_JACK
+    score == BLACKJACK
   end
 
   private

@@ -1,6 +1,6 @@
-require 'black_jack_calculator'
+require 'blackjack_calculator'
 
-describe BlackJackCalculator do
+describe BlackjackCalculator do
 
   describe '#score' do
     it 'returns 0 for empty game' do
